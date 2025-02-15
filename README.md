@@ -20,7 +20,6 @@ Linux
 source venv/bin/activate
 ```
 
-
 ### Requirements
 ```commandline
 pip install -r requirements.txt
@@ -32,6 +31,12 @@ python task_processing.py
 ```
 
 ### Backend run
+Перед запуском бекенду, в каталозі backend створити файл .env і додати наступні змінні:
+```dotenv
+MONGO_HOST="localhost"
+MONGO_PORT=27017
+```
+Потім виконати
 ```commandline
 uvicorn backend.main:app
 ```
