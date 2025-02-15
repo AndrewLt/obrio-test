@@ -148,7 +148,8 @@ def main():
                     llm_insight=llm_insight
                 )
                 set_status_task(task_id=task.get('taskId'))
-        # except
+        except Exception as e:
+            logging.error(f'Task processing error, {e}')
         finally:
             logging.info('There are no new tasks. Waiting 30 sec...')
             time.sleep(30)
