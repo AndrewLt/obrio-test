@@ -1,3 +1,5 @@
+Відео з коментарями: https://drive.google.com/file/d/1NwllGmUVidd7VTFToZsutNv0y7FZMSt4/view?usp=sharing
+
 ## Основні залежності
 ```
 1. Ключ OPENAI для роботи з моделлю
