@@ -1,15 +1,18 @@
+import os.path
 import re
 import html
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, pipeline
 
-LOCAL_MODEL_PATH = "./ml_models"
-
+if os.path.exists("./ml_models"):
+    MODEL_PATH = "./ml_models"
+else:
+    MODEL_PATH = 'MarieAngeA13/Sentiment-Analysis-BERT'
 
 class CommentAnalyser:
     def __init__(self):
-        self.tokenizer = AutoTokenizer.from_pretrained(LOCAL_MODEL_PATH)
-        self.model = AutoModelForSequenceClassification.from_pretrained(LOCAL_MODEL_PATH)
+        self.tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+        self.model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
         self.sentiment_pipeline = self._get_pipeline()
 
     def _get_pipeline(self, task: str = "sentiment-analysis", batch_size: int = 8) -> pipeline:
